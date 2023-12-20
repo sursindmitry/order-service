@@ -1,0 +1,12 @@
+ARG DEFAULT_APP_NAME=order-service-0.0.1-SNAPSHOT-boot
+
+FROM openjdk:17
+
+ARG DEFAULT_APP_NAME
+ENV APP_NAME=$DEFAULT_APP_NAME
+
+COPY build/libs/$APP_NAME.jar app.jar
+
+EXPOSE 8080
+
+ENTRYPOINT java -jar app.jar
